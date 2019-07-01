@@ -38,3 +38,13 @@ add_action( 'init', function(){
   register_taxonomy_for_object_type( 'category', 'events' );
   register_taxonomy_for_object_type( 'post_tag', 'events' );
 } );
+
+add_filter( 'orbit_taxonomy_vars', function( $taxonomies ){
+
+  $taxonomies['project-group']	= array(
+    'label'			=> 'Project Group',
+    'slug' 			=> 'project-group',
+    'post_types'	=> array( 'projects' )
+  );
+		return $taxonomies;
+} );
